@@ -1,1 +1,1 @@
-from .code import *
+from .osu_db import *
