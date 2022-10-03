@@ -155,10 +155,10 @@ class MapsDB():
         self.__db.commit()
 
 
-    def get_map_file_name(self, map_md5, filename=True):
+    def get_map_file_name(self, map_md5, filepath=True):
         reply = self.__db.execute(f'SELECT path FROM maps WHERE md5 = "{map_md5}"').fetchone()
         if reply is not None:
-            map_file_name = f'{self.__osu_path}/Songs/{reply[0]}' if filename else reply[0]
+            map_file_name = f'{self.__osu_path}/Songs/{reply[0]}' if filepath else reply[0]
             return map_file_name
 
         return None
