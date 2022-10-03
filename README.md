@@ -22,8 +22,9 @@ On first run it may take a few seconds for it to parse through osu!.db and build
 To resolve beatmaps:
 
 ```py
-filename = maps_db.get_map_file_name(map_md5, filename=True)
+map_path = maps_db.get_map_file_name(map_md5, filepath=True)
 ```
+When `filepath` is true, it will return the full path to the beatmap, otherwise it will return the name of the beatmap file
 
 To refresh the db with new maps:
 ```py
