@@ -9,7 +9,19 @@ from .osu_db_reader import OsuDbReader
 # For resolving replays to maps
 class MapsDB():
 
+    __maps_db_obj_cache = None
+
+    def __new__(cls, *args, **kwargs):
+        if MapsDB.__maps_db_obj_cache is not None:
+            return MapsDB.__maps_db_obj_cache
+
+        return super(MapsDB, cls).__new__(cls)
+
+
     def __init__(self, osu_path):
+        if MapsDB.__maps_db_obj_cache is not None:
+            return
+
         self.__stream_handler = logging.StreamHandler()
         self.__stream_handler.setFormatter(logging.Formatter('%(levelname)s %(asctime)s  [ %(name)s ] %(message)s'))
 
@@ -35,6 +47,8 @@ class MapsDB():
             raise FileNotFoundError(f'"{self.__osu_db_path}" does not exist!')
 
         self.check_db()
+
+        MapsDB.__maps_db_obj_cache = self
 
 
     def __check_maps_table(self):
