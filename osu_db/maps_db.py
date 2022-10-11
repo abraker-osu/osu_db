@@ -23,7 +23,7 @@ class MapsDB():
             return
 
         self.__stream_handler = logging.StreamHandler()
-        self.__stream_handler.setFormatter(logging.Formatter('%(levelname)s %(asctime)s  [ %(name)s ] %(message)s'))
+        self.__stream_handler.setFormatter(logging.Formatter('%(levelname)s %(asctime)s  [ %(name)s : %(threadName)s ]  %(message)s'))
 
         self.__logger = logging.getLogger(self.__class__.__name__)
         self.__logger.addHandler(self.__stream_handler)
