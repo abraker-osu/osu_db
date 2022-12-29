@@ -28,6 +28,8 @@ class MapsDB():
         self.__logger = logging.getLogger(self.__class__.__name__)
         self.__logger.addHandler(self.__stream_handler)
 
+        self.__logger.debug('MapsDB.__init__ enter')
+
         # Create the maps.db file containing a list of map paths and their md5 hash
         os.makedirs('data', exist_ok=True)
         self.__db = sqlite3.connect('data/maps.db', check_same_thread=False)
@@ -49,6 +51,7 @@ class MapsDB():
         self.check_db()
 
         MapsDB.__maps_db_obj_cache = self
+        self.__logger.debug('MapsDB.__init__ exit')
 
 
     def __check_maps_table(self):
