@@ -6,8 +6,8 @@ rd /s /q .eggs
 echo Removing "build/..."
 rd /s /q build
 
-echo Removing "src/osu_analysis.egg-info"
-rd /s /q src\\osu_analysis.egg-info
+echo Removing "src/osu_db.egg-info"
+rd /s /q src\\osu_db.egg-info
 
 echo Removing "pycache..."
 python -Bc "import pathlib; import shutil; [ shutil.rmtree(path) for path in pathlib.Path('.').rglob('__pycache__') ]"
@@ -24,7 +24,7 @@ if "%VIRTUAL_ENV%" == "" (
 )
 
 echo uninstall lib...
-python -m pip uninstall -y osu_analysis
+python -m pip uninstall -y osu_db
 
 python -m pip cache purge
 
