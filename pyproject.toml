@@ -1,0 +1,22 @@
+[build-system]
+requires      = [ "setuptools >= 64", 'setuptools_scm[toml] >=8 ' ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "osu-db"
+description     = "Python library for reading osu! osu.db files and building a list of md5 <-> beatmap path relations"
+readme          = "README.md"
+requires-python = ">= 3.10"
+dynamic         = [ "version" ]
+
+dependencies = [
+
+]
+
+[project.urls]
+Homepage = "https://github.com/abraker-osu/osu_db"
+
+[tool.setuptools.package-dir]
+osu_db = "src"
+
+[tool.setuptools_scm]
