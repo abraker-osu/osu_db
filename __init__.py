@@ -1,1 +1,2 @@
-from .osu_db import *
+from .src import MapsDB
+

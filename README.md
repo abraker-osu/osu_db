@@ -12,7 +12,20 @@ TABLE meta(num_maps INT, last_modified REAL)
 This is mainly used for determining where to find a beatmap for a given replay, in conjunction with [osu_recorder](https://github.com/orgs/abraker-osu/repositories).
 Do note osu!.db gets updated only when osu! closes, so any new beatmaps added while osu! is open will not be found.
 
-# Use
+## Installing
+
+```
+python -m pip install git+https://github.com/abraker-osu/osu_db.git#egg=osu_db
+```
+
+Add the following to .vscore/settings.json if linting is failing on libraries in venv/src:
+```
+"python.analysis.extraPaths": [
+    "venv\\src",
+]
+```
+
+## Use
 To start using just create a new `MapsDB` object, giving it the osu! path:
 ```py
 maps_db = MapsDB('K:/Games/osu!')
