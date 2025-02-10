@@ -44,6 +44,14 @@ class ReadBuffer:
         double = ReadBuffer.read_double(buffer)
         return (integer, double)
 
+    @staticmethod
+    def read_int_float(buffer: io.BufferedReader):
+        ReadBuffer.read_ubyte(buffer)
+        integer = ReadBuffer.read_uint(buffer)
+        ReadBuffer.read_ubyte(buffer)
+        double = ReadBuffer.read_float(buffer)
+        return (integer, double)
+
 
     @staticmethod
     def read_timing_point(buffer: io.BufferedReader):
@@ -154,19 +162,19 @@ class OsuDbReader():
 
                 i = ReadBuffer.read_uint(db)
                 for _ in range(i):
-                    ReadBuffer.read_int_double(db)
+                    ReadBuffer.read_int_float(db)
 
                 i = ReadBuffer.read_uint(db)
                 for _ in range(i):
-                    ReadBuffer.read_int_double(db)
+                    ReadBuffer.read_int_float(db)
 
                 i = ReadBuffer.read_uint(db)
                 for _ in range(i):
-                    ReadBuffer.read_int_double(db)
+                    ReadBuffer.read_int_float(db)
 
                 i = ReadBuffer.read_uint(db)
                 for _ in range(i):
-                    ReadBuffer.read_int_double(db)
+                    ReadBuffer.read_int_float(db)
 
                 drain_time   = ReadBuffer.read_uint(db)
                 total_time   = ReadBuffer.read_uint(db)
