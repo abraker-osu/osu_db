@@ -82,7 +82,7 @@ class ReadBuffer:
 
         Format:
             [
-                ( <u8:(0x08)> < u8:(data)> ) |
+                ( <u8:(0x08)> <u32:(data)> ) |
                 ( <u8:(0x0C)> <f32:(data)> ) |
                 ( <u8:(0x0D)> <f64:(data)> )
             ]
